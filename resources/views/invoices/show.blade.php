@@ -1,0 +1,112 @@
+@extends('layouts.app')
+
+@section('title', 'Invoice Detail')
+
+@section('breadcrumbs')
+<nav class="flex items-center gap-2 text-sm text-[#64748B]">
+    <a href="{{ route('dashboard') }}" class="hover:text-[#4F46E5]">Dashboard</a>
+    <span>/</span>
+    <a href="{{ route('invoices.index') }}" class="hover:text-[#4F46E5]">Invoices</a>
+    <span>/</span>
+    <span class="text-[#0F172A] font-medium">INV-0042</span>
+</nav>
+@endsection
+
+@section('content')
+<div class="space-y-6 max-w-4xl">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div class="flex items-center gap-4">
+            <a href="{{ route('invoices.index') }}" class="p-2 rounded-lg hover:bg-[#F1F5F9] text-[#64748B] transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            </a>
+            <div>
+                <h1 class="text-2xl font-bold text-[#0F172A]">INV-0042</h1>
+                <p class="text-sm text-[#64748B]">Acme Corp · Website Redesign · Auto-generated</p>
+            </div>
+        </div>
+        <div class="flex flex-wrap gap-2">
+            <button onclick="window.toast?.('Invoice sent')" class="px-4 py-2 border border-[#E2E8F0] rounded-lg text-sm font-medium text-[#64748B] hover:bg-[#F8FAFC] transition-colors">Send</button>
+            <button onclick="window.toast?.('Duplicate created')" class="px-4 py-2 border border-[#E2E8F0] rounded-lg text-sm font-medium text-[#64748B] hover:bg-[#F8FAFC] transition-colors">Duplicate Invoice</button>
+            <button onclick="window.toast?.('Marked as paid')" class="px-4 py-2 border border-[#22C55E] rounded-lg text-sm font-medium text-[#22C55E] hover:bg-[#ECFDF5] transition-colors">Mark as Paid</button>
+            <button onclick="window.toast?.('Downloading PDF...')" class="px-4 py-2 bg-[#4F46E5] text-white rounded-lg text-sm font-medium hover:opacity-90 transition-opacity inline-flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                Download PDF
+            </button>
+        </div>
+    </div>
+
+    <div class="bg-white rounded-xl border border-[#E2E8F0] shadow-sm overflow-hidden">
+        <div class="p-8">
+            <div class="flex justify-between items-start mb-8">
+                <div>
+                    <h2 class="text-lg font-bold text-[#0F172A]">ClientFlow Pro</h2>
+                    <p class="text-sm text-[#64748B]">Invoice</p>
+                </div>
+                <span class="px-3 py-1.5 rounded-full text-sm font-medium bg-[#ECFDF5] text-[#22C55E]">Paid</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-8 mb-8">
+                <div>
+                    <p class="text-sm font-medium text-[#64748B] mb-1">Bill To</p>
+                    <p class="font-medium text-[#0F172A]">Acme Corp</p>
+                    <p class="text-sm text-[#64748B]">John Smith</p>
+                    <p class="text-sm text-[#64748B]">john@acme.com</p>
+                </div>
+                <div class="text-right">
+                    <p class="text-sm text-[#64748B]">Invoice #</p>
+                    <p class="font-medium text-[#0F172A]">INV-0042</p>
+                    <p class="text-sm text-[#64748B] mt-2">Issue Date</p>
+                    <p class="font-medium text-[#0F172A]">March 1, 2025</p>
+                    <p class="text-sm text-[#64748B] mt-2">Due Date</p>
+                    <p class="font-medium text-[#0F172A]">March 15, 2025</p>
+                </div>
+            </div>
+
+            <table class="w-full">
+                <thead>
+                    <tr class="border-b border-[#E2E8F0]">
+                        <th class="py-3 text-left text-sm font-semibold text-[#64748B]">Description</th>
+                        <th class="py-3 text-right text-sm font-semibold text-[#64748B]">Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b border-[#E2E8F0]">
+                        <td class="py-4 text-[#0F172A]">Website Redesign - Phase 1</td>
+                        <td class="py-4 text-right font-medium text-[#0F172A]">$2,500.00</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="mt-6 flex justify-end">
+                <div class="w-48 text-right">
+                    <div class="flex justify-between py-2 text-sm">
+                        <span class="text-[#64748B]">Subtotal</span>
+                        <span class="font-medium text-[#0F172A]">$2,500.00</span>
+                    </div>
+                    <div class="flex justify-between py-2 border-t border-[#E2E8F0] text-sm">
+                        <span class="text-[#64748B]">Tax (0%)</span>
+                        <span class="font-medium text-[#0F172A]">$0.00</span>
+                    </div>
+                    <div class="flex justify-between py-2 border-t border-[#E2E8F0] dark:border-[#334155]">
+                        <span class="font-semibold text-[#0F172A]">Total</span>
+                        <span class="font-bold text-lg text-[#0F172A]">$2,500.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-[#E2E8F0] p-6 bg-[#F8FAFC]">
+            <h3 class="font-semibold text-[#0F172A] mb-4">Payment History</h3>
+            <div class="space-y-3">
+                <div class="flex items-center justify-between p-4 bg-white rounded-lg border border-[#E2E8F0]">
+                    <div>
+                        <p class="font-medium text-[#0F172A]">Payment received</p>
+                        <p class="text-sm text-[#64748B]">Mar 10, 2025 · Bank Transfer</p>
+                    </div>
+                    <span class="font-medium text-[#22C55E]">$2,500.00</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
