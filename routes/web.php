@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return redirect()->route('dashboard');
-});
+    return view('landing');
+})->name('landing');
 
 // Auth
 Route::get('/login', fn () => view('auth.login'))->name('login');
@@ -45,4 +45,17 @@ Route::middleware(['web'])->group(function () {
     
     // Settings
     Route::get('/settings', fn () => view('settings.index'))->name('settings.index');
+    
+    // Automation
+    Route::get('/automation', fn () => view('automation.index'))->name('automation.index');
 });
+
+// Client Portal
+Route::group(['prefix' => 'portal', 'as' => 'portal.'], function () {
+    Route::get('/', fn () => view('portal.dashboard'))->name('dashboard');
+    Route::get('/projects', fn () => view('portal.projects'))->name('projects');
+    Route::get('/invoices', fn () => view('portal.invoices'))->name('invoices');
+});
+
+// Search API (simulates unified backend)
+Route::get('/api/search', [\App\Http\Controllers\SearchController::class, 'index'])->name('api.search');

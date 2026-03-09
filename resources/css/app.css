@@ -16,11 +16,6 @@
   --color-accent: #22C55E;
   --color-warning: #F59E0B;
   --color-danger: #EF4444;
-  --color-bg: #F8FAFC;
-  --color-card: #FFFFFF;
-  --color-border: #E2E8F0;
-  --color-muted: #64748B;
-  --color-text: #0F172A;
   
   /* Spacing & Radius */
   --radius-card: 12px;
@@ -30,7 +25,47 @@
   --shadow-elevated: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
+:root {
+  color-scheme: light;
+  --color-bg: #F8FAFC;
+  --color-bg-secondary: #E5E7EB;
+  --color-card: #FFFFFF;
+  --color-border: #E2E8F0;
+  --color-text: #0F172A;
+  --color-text-secondary: #64748B;
+  --color-text-muted: #94A3B8;
+  --color-hover: #F1F5F9;
+  --color-active-bg: #EEF2FF;
+  --color-scrollbar-track: #F1F5F9;
+  --color-scrollbar-thumb: #CBD5E1;
+  --color-scrollbar-thumb-hover: #94A3B8;
+  --color-input-bg: #FFFFFF;
+  --color-sidebar-bg: #FFFFFF;
+}
+
+.dark {
+  color-scheme: dark;
+  --color-bg: #191919;
+  --color-bg-secondary: #202020;
+  --color-card: #252525;
+  --color-border: #2F2F2F;
+  --color-text: rgba(255, 255, 255, 0.87);
+  --color-text-secondary: #9B9B9B;
+  --color-text-muted: #6B6B6B;
+  --color-hover: #2C2C2C;
+  --color-active-bg: #2F2D5B;
+  --color-scrollbar-track: #191919;
+  --color-scrollbar-thumb: #444444;
+  --color-scrollbar-thumb-hover: #666666;
+  --color-input-bg: #252525;
+  --color-sidebar-bg: #202020;
+}
+
 /* Base styles */
+html {
+  transition: color-scheme 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
 body {
   font-family: var(--font-sans);
   background-color: var(--color-bg);
@@ -43,16 +78,40 @@ body {
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #F1F5F9;
+  background: var(--color-scrollbar-track);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
+  background: var(--color-scrollbar-thumb);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #94A3B8;
+  background: var(--color-scrollbar-thumb-hover);
 }
+
+/* Semantic utility overrides for dark mode support without editing every HTML file */
+.dark .bg-white { background-color: var(--color-card); }
+.dark .bg-\[\#F8FAFC\] { background-color: var(--color-bg); }
+.dark .bg-\[\#F1F5F9\] { background-color: var(--color-hover); }
+.dark .bg-\[\#E2E8F0\] { background-color: var(--color-border); }
+.dark .border-\[\#E2E8F0\] { border-color: var(--color-border); }
+.dark .border-\[\#E5E7EB\] { border-color: var(--color-border); }
+.dark .text-\[\#0F172A\] { color: var(--color-text); }
+.dark .text-\[\#111827\] { color: var(--color-text); }
+.dark .text-\[\#64748B\] { color: var(--color-text-secondary); }
+.dark .text-\[\#6B7280\] { color: var(--color-text-secondary); }
+.dark .text-\[\#94A3B8\] { color: var(--color-text-muted); }
+.dark .hover\:bg-\[\#F8FAFC\]:hover { background-color: var(--color-hover); }
+.dark .hover\:bg-\[\#F1F5F9\]:hover { background-color: var(--color-hover); }
+
+/* Status Badges - Dark Mode Adjustments */
+.dark .bg-\[\#ECFDF5\] { background-color: rgba(34, 197, 94, 0.1); }
+.dark .bg-\[\#FEF2F2\] { background-color: rgba(239, 68, 68, 0.1); }
+.dark .bg-\[\#FEF3C7\] { background-color: rgba(245, 158, 11, 0.1); }
+.dark .bg-\[\#EEF2FF\] { background-color: var(--color-active-bg); }
+.dark .bg-\[\#F0F9FF\] { background-color: rgba(14, 165, 233, 0.1); }
+.dark .bg-\[\#F5F3FF\] { background-color: rgba(139, 92, 246, 0.1); }
+.dark .bg-\[\#FFF7ED\] { background-color: rgba(249, 115, 22, 0.1); }
 
 /* Toast animation */
 @keyframes toast-slide-in {
@@ -100,3 +159,34 @@ body {
   from { width: 0; }
 }
 .progress-animated { animation: progress-fill 0.6s ease-out forwards; }
+
+/* Sidebar slide transition – GPU-accelerated transform */
+.sidebar-slide {
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+.sidebar-slide-hidden {
+  transform: translateX(-100%);
+}
+.sidebar-slide-visible {
+  transform: translateX(0);
+}
+
+/* Main content transition when sidebar pins/unpins */
+.main-transition {
+  transition: padding-left 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Page navigation fade */
+@keyframes page-fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.page-enter {
+  animation: page-fade-in 0.2s ease-out both;
+}
+
+/* Sidebar hover shadow (floating mode) */
+.sidebar-floating-shadow {
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.12);
+}
