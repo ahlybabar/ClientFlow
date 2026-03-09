@@ -4,7 +4,7 @@
 
 @section('breadcrumbs')
 <nav class="flex items-center gap-2 text-sm text-[#64748B]">
-    <a href="{{ route('dashboard') }}" class="hover:text-[#4F46E5]">Dashboard</a>
+    <a href="{{ route('dashboard') }}" class="hover:text-[#4F7CFF]">Dashboard</a>
     <span>/</span>
     <span class="text-[#0F172A] font-medium">Automation</span>
 </nav>
@@ -30,7 +30,7 @@
             <h1 class="text-2xl font-bold text-[#0F172A]">Workflow Automation</h1>
             <p class="mt-1 text-sm text-[#64748B]">Automate repetitive tasks with trigger-based rules</p>
         </div>
-        <button @click="createRuleOpen = true" class="inline-flex items-center gap-2 px-4 py-2 bg-[#4F46E5] text-white rounded-lg hover:bg-[#4338CA] font-medium text-sm transition-colors">
+        <button @click="createRuleOpen = true" class="inline-flex items-center gap-2 px-4 py-2 bg-[#4F7CFF] text-white rounded-lg hover:bg-[#4338CA] font-medium text-sm transition-colors">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
             Create Rule
         </button>
@@ -48,7 +48,7 @@
         </div>
         <div class="bg-white rounded-xl p-5 border border-[#E2E8F0] shadow-sm">
             <p class="text-sm text-[#64748B]">Total Runs</p>
-            <p class="text-2xl font-bold text-[#4F46E5] mt-1">118</p>
+            <p class="text-2xl font-bold text-[#4F7CFF] mt-1">118</p>
         </div>
         <div class="bg-white rounded-xl p-5 border border-[#E2E8F0] shadow-sm">
             <p class="text-sm text-[#64748B]">Time Saved</p>
@@ -77,7 +77,7 @@
                                     <span x-text="'When: ' + rule.trigger"></span>
                                 </div>
                                 <svg class="w-4 h-4 text-[#94A3B8] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                                <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#EEF2FF] border border-[#4F46E5]/20 text-xs font-medium text-[#3730A3]">
+                                <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#EEF2FF] border border-[#4F7CFF]/20 text-xs font-medium text-[#3730A3]">
                                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
                                     <span x-text="'If: ' + rule.condition"></span>
                                 </div>
@@ -98,7 +98,7 @@
                         {{-- Toggle --}}
                         <button @click="rule.enabled = !rule.enabled"
                                 class="relative w-11 h-6 rounded-full transition-colors"
-                                :class="rule.enabled ? 'bg-[#4F46E5]' : 'bg-[#E2E8F0]'">
+                                :class="rule.enabled ? 'bg-[#4F7CFF]' : 'bg-[#E2E8F0]'">
                             <span class="absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow-sm transition-transform"
                                   :class="rule.enabled ? 'translate-x-5' : 'translate-x-0'"></span>
                         </button>
@@ -153,7 +153,7 @@
                 <div class="p-5 space-y-5">
                     <div>
                         <label class="block text-sm font-medium text-[#0F172A] mb-1.5">Rule Name</label>
-                        <input type="text" placeholder="e.g. Notify on overdue tasks" class="w-full px-4 py-2.5 border border-[#E2E8F0] rounded-lg text-sm focus:ring-2 focus:ring-[#4F46E5] focus:border-transparent placeholder:text-[#94A3B8]">
+                        <input type="text" placeholder="e.g. Notify on overdue tasks" class="w-full px-4 py-2.5 border border-[#E2E8F0] rounded-lg text-sm focus:ring-2 focus:ring-[#4F7CFF] focus:border-transparent placeholder:text-[#94A3B8]">
                     </div>
                     {{-- Trigger --}}
                     <div>
@@ -161,7 +161,7 @@
                             <span class="w-6 h-6 rounded-md bg-[#FEF3C7] text-[#F59E0B] flex items-center justify-center text-xs">⚡</span>
                             When (Trigger)
                         </label>
-                        <select x-model="selectedTrigger" class="w-full px-4 py-2.5 border border-[#E2E8F0] rounded-lg text-sm focus:ring-2 focus:ring-[#4F46E5] focus:border-transparent text-[#0F172A]">
+                        <select x-model="selectedTrigger" class="w-full px-4 py-2.5 border border-[#E2E8F0] rounded-lg text-sm focus:ring-2 focus:ring-[#4F7CFF] focus:border-transparent text-[#0F172A]">
                             <option value="">Select a trigger...</option>
                             <option value="task_overdue">Task becomes overdue</option>
                             <option value="task_completed">Task status = Completed</option>
@@ -175,10 +175,10 @@
                     {{-- Condition --}}
                     <div>
                         <label class="block text-sm font-medium text-[#0F172A] mb-1.5 flex items-center gap-2">
-                            <span class="w-6 h-6 rounded-md bg-[#EEF2FF] text-[#4F46E5] flex items-center justify-center text-xs">⚙️</span>
+                            <span class="w-6 h-6 rounded-md bg-[#EEF2FF] text-[#4F7CFF] flex items-center justify-center text-xs">⚙️</span>
                             If (Condition)
                         </label>
-                        <select x-model="selectedCondition" class="w-full px-4 py-2.5 border border-[#E2E8F0] rounded-lg text-sm focus:ring-2 focus:ring-[#4F46E5] focus:border-transparent text-[#0F172A]">
+                        <select x-model="selectedCondition" class="w-full px-4 py-2.5 border border-[#E2E8F0] rounded-lg text-sm focus:ring-2 focus:ring-[#4F7CFF] focus:border-transparent text-[#0F172A]">
                             <option value="">Select a condition...</option>
                             <option value="always">Always (no condition)</option>
                             <option value="priority_high">Priority is High or Critical</option>
@@ -193,7 +193,7 @@
                             <span class="w-6 h-6 rounded-md bg-[#ECFDF5] text-[#22C55E] flex items-center justify-center text-xs">✓</span>
                             Then (Action)
                         </label>
-                        <select x-model="selectedAction" class="w-full px-4 py-2.5 border border-[#E2E8F0] rounded-lg text-sm focus:ring-2 focus:ring-[#4F46E5] focus:border-transparent text-[#0F172A]">
+                        <select x-model="selectedAction" class="w-full px-4 py-2.5 border border-[#E2E8F0] rounded-lg text-sm focus:ring-2 focus:ring-[#4F7CFF] focus:border-transparent text-[#0F172A]">
                             <option value="">Select an action...</option>
                             <option value="notify_manager">Notify project manager</option>
                             <option value="send_email">Send email notification</option>
@@ -206,7 +206,7 @@
                 </div>
                 <div class="flex items-center justify-end gap-3 p-5 border-t border-[#E2E8F0] bg-[#F8FAFC]">
                     <button @click="createRuleOpen = false" class="px-4 py-2 border border-[#E2E8F0] rounded-lg text-sm font-medium text-[#64748B] hover:bg-white transition-colors">Cancel</button>
-                    <button @click="createRuleOpen = false; window.toast?.('Automation rule created', 'success')" class="px-4 py-2 bg-[#4F46E5] text-white rounded-lg text-sm font-medium hover:bg-[#4338CA] transition-colors">Create Rule</button>
+                    <button @click="createRuleOpen = false; window.toast?.('Automation rule created', 'success')" class="px-4 py-2 bg-[#4F7CFF] text-white rounded-lg text-sm font-medium hover:bg-[#4338CA] transition-colors">Create Rule</button>
                 </div>
             </div>
         </div>

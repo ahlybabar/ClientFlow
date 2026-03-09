@@ -11,13 +11,13 @@
         </div>
         {{-- Filters --}}
         <div class="flex flex-wrap gap-2" x-data="{ dateRange: '12m' }">
-            <select class="px-3 py-2 border border-[var(--color-border)] bg-[var(--color-card)] rounded-lg text-sm text-[var(--color-text)] focus:ring-2 focus:ring-[#4F46E5] focus:border-transparent custom-select" x-model="dateRange">
+            <select class="px-3 py-2 border border-[var(--color-border)] bg-[var(--color-card)] rounded-lg text-sm text-[var(--color-text)] focus:ring-2 focus:ring-[#4F7CFF] focus:border-transparent custom-select" x-model="dateRange">
                 <option value="7d">Last 7 days</option>
                 <option value="30d">Last 30 days</option>
                 <option value="90d">Last 90 days</option>
                 <option value="12m" selected>Last 12 months</option>
             </select>
-            <button class="px-4 py-2 bg-[#4F46E5] text-white rounded-lg text-sm font-medium hover:opacity-90 transition-opacity inline-flex items-center gap-2">
+            <button class="px-4 py-2 bg-[#4F7CFF] text-white rounded-lg text-sm font-medium hover:opacity-90 transition-opacity inline-flex items-center gap-2">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
                 Export
             </button>
@@ -27,7 +27,7 @@
     {{-- Financial Metrics --}}
     <div>
         <h2 class="text-lg font-semibold text-[var(--color-text)] mb-4 flex items-center gap-2">
-            <svg class="w-5 h-5 text-[#4F46E5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <svg class="w-5 h-5 text-[#4F7CFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             Financial Metrics
         </h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
@@ -58,7 +58,7 @@
         </h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             @foreach([
-                ['label' => 'Task Velocity', 'value' => '42/week', 'trend' => '+15%', 'trendType' => 'positive', 'subtitle' => 'Tasks completed per week', 'progress' => 78, 'color' => 'bg-[#4F46E5]'],
+                ['label' => 'Task Velocity', 'value' => '42/week', 'trend' => '+15%', 'trendType' => 'positive', 'subtitle' => 'Tasks completed per week', 'progress' => 78, 'color' => 'bg-[#4F7CFF]'],
                 ['label' => 'Delivery Time', 'value' => '18 days', 'trend' => '-8%', 'trendType' => 'positive', 'subtitle' => 'Avg project delivery', 'progress' => 65, 'color' => 'bg-[#22C55E]'],
                 ['label' => 'Utilization', 'value' => '84%', 'trend' => '+5%', 'trendType' => 'positive', 'subtitle' => 'Team utilization rate', 'progress' => 84, 'color' => 'bg-[#F59E0B]'],
                 ['label' => 'Acquisition', 'value' => '6/month', 'trend' => '+20%', 'trendType' => 'positive', 'subtitle' => 'New clients per month', 'progress' => 72, 'color' => 'bg-[#8B5CF6]'],
@@ -93,7 +93,7 @@
         <div class="bg-[var(--color-card)] rounded-xl p-6 border border-[var(--color-border)] shadow-sm">
             <div class="flex items-center justify-between mb-1">
                 <h3 class="text-lg font-semibold text-[var(--color-text)]">Revenue Forecast</h3>
-                <span class="text-xs font-medium px-2.5 py-1 rounded-full bg-[#EEF2FF] text-[#4F46E5] dark:bg-[var(--color-active-bg)]">AI Predicted</span>
+                <span class="text-xs font-medium px-2.5 py-1 rounded-full bg-[#EEF2FF] text-[#4F7CFF] dark:bg-[var(--color-active-bg)]">AI Predicted</span>
             </div>
             <p class="text-sm text-[var(--color-text-secondary)]">Next 6 months projection</p>
             <div class="mt-6 h-72 chart-container">
@@ -162,11 +162,11 @@ document.addEventListener('DOMContentLoaded', function() {
             datasets: [{
                 label: 'Revenue',
                 data: [15200, 16800, 17500, 18200, 19500, 21200, 19800, 22400, 23100, 23800, 24200, 24500],
-                borderColor: '#6366F1',
+                borderColor: '#4F7CFF',
                 backgroundColor: 'rgba(79, 70, 229, 0.1)',
                 fill: true,
                 tension: 0.4,
-                pointBackgroundColor: '#6366F1',
+                pointBackgroundColor: '#4F7CFF',
                 pointRadius: 3,
             }]
         },
@@ -189,9 +189,9 @@ document.addEventListener('DOMContentLoaded', function() {
             datasets: [{
                 label: 'Actual',
                 data: [24500, null, null, null, null, null, null],
-                borderColor: '#6366F1',
+                borderColor: '#4F7CFF',
                 backgroundColor: 'transparent',
-                pointBackgroundColor: '#6366F1',
+                pointBackgroundColor: '#4F7CFF',
                 pointRadius: 5,
                 borderWidth: 2,
             }, {
@@ -288,7 +288,7 @@ document.addEventListener('DOMContentLoaded', function() {
             labels: ['Completed', 'In Progress', 'On Hold'],
             datasets: [{
                 data: [68, 28, 4],
-                backgroundColor: ['#22C55E', '#6366F1', '#F59E0B'],
+                backgroundColor: ['#22C55E', '#4F7CFF', '#F59E0B'],
                 borderWidth: 0,
             }]
         },
@@ -305,7 +305,7 @@ document.addEventListener('DOMContentLoaded', function() {
             labels: ['Acme Corp', 'TechStart', 'Global Sol.', 'Innovate Labs', 'Others'],
             datasets: [{
                 data: [8200, 5400, 3800, 4500, 2600],
-                backgroundColor: ['#6366F1', '#22C55E', '#F59E0B', '#8B5CF6', '#94A3B8'],
+                backgroundColor: ['#4F7CFF', '#22C55E', '#F59E0B', '#8B5CF6', '#94A3B8'],
                 borderWidth: 0,
             }]
         },

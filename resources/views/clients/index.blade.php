@@ -28,7 +28,7 @@
             <h1 class="text-2xl font-bold text-[var(--color-text)]">Clients</h1>
             <p class="mt-1 text-sm text-[var(--color-text-secondary)]">Manage your client relationships and contacts</p>
         </div>
-        <button onclick="window.toast?.('Client form coming soon', 'info')" class="inline-flex items-center gap-2 px-4 py-2 bg-[#4F46E5] text-white rounded-lg hover:opacity-90 font-medium text-sm transition-opacity">
+        <button onclick="window.toast?.('Client form coming soon', 'info')" class="inline-flex items-center gap-2 px-4 py-2 bg-[#4F7CFF] text-white rounded-lg hover:opacity-90 font-medium text-sm transition-opacity">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
             Add Client
         </button>
@@ -39,10 +39,10 @@
         <div class="relative flex-1">
             <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--color-text-muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
             <input type="text" x-model="search" placeholder="Search clients, contacts, emails..."
-                   class="w-full pl-10 pr-4 py-2.5 border border-[var(--color-border)] bg-[var(--color-card)] text-[var(--color-text)] rounded-lg text-sm focus:ring-2 focus:ring-[#4F46E5] focus:border-transparent placeholder:text-[var(--color-text-muted)] transition-colors">
+                   class="w-full pl-10 pr-4 py-2.5 border border-[var(--color-border)] bg-[var(--color-card)] text-[var(--color-text)] rounded-lg text-sm focus:ring-2 focus:ring-[#4F7CFF] focus:border-transparent placeholder:text-[var(--color-text-muted)] transition-colors">
         </div>
         <select x-model="statusFilter"
-                class="px-3 py-2.5 border border-[var(--color-border)] bg-[var(--color-card)] text-[var(--color-text)] rounded-lg text-sm focus:ring-2 focus:ring-[#4F46E5] custom-select transition-colors">
+                class="px-3 py-2.5 border border-[var(--color-border)] bg-[var(--color-card)] text-[var(--color-text)] rounded-lg text-sm focus:ring-2 focus:ring-[#4F7CFF] custom-select transition-colors">
             <option value="all">All Statuses</option>
             <option value="active">Active</option>
             <option value="inactive">Inactive</option>
@@ -67,7 +67,7 @@
                     <template x-for="client in filtered" :key="client.company">
                         <tr class="hover:bg-[var(--color-hover)] transition-colors">
                             <td class="px-6 py-4">
-                                <a href="{{ route('clients.show', 1) }}" class="font-semibold text-[#4F46E5] hover:underline" x-text="client.company"></a>
+                                <a href="{{ route('clients.show', 1) }}" class="font-semibold text-[#4F7CFF] hover:underline" x-text="client.company"></a>
                             </td>
                             <td class="px-6 py-4 text-sm text-[var(--color-text)]" x-text="client.contact"></td>
                             <td class="px-6 py-4 text-sm text-[var(--color-text-secondary)]" x-text="client.email"></td>
@@ -80,10 +80,10 @@
                             </td>
                             <td class="px-6 py-4 text-right">
                                 <div class="flex items-center justify-end gap-1">
-                                    <a href="{{ route('clients.show', 1) }}" class="p-2 rounded-lg hover:bg-[var(--color-bg)] text-[var(--color-text-secondary)] hover:text-[#4F46E5] transition-colors" title="View">
+                                    <a href="{{ route('clients.show', 1) }}" class="p-2 rounded-lg hover:bg-[var(--color-bg)] text-[var(--color-text-secondary)] hover:text-[#4F7CFF] transition-colors" title="View">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
                                     </a>
-                                    <button class="p-2 rounded-lg hover:bg-[var(--color-bg)] text-[var(--color-text-secondary)] hover:text-[#4F46E5] transition-colors" title="Edit">
+                                    <button class="p-2 rounded-lg hover:bg-[var(--color-bg)] text-[var(--color-text-secondary)] hover:text-[#4F7CFF] transition-colors" title="Edit">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
                                     </button>
                                     <button class="p-2 rounded-lg hover:bg-[rgba(239,68,68,0.1)] text-[var(--color-text-secondary)] hover:text-[#EF4444] transition-colors" title="Archive">
@@ -105,7 +105,7 @@
             <p class="text-sm text-[var(--color-text-secondary)]">Showing <span x-text="filtered.length"></span> of 48 clients</p>
             <div class="flex gap-2">
                 <button class="px-3 py-1.5 rounded-lg border border-[var(--color-border)] text-sm font-medium text-[var(--color-text-secondary)] hover:bg-[var(--color-hover)] disabled:opacity-40 transition-colors" disabled>Previous</button>
-                <button class="px-3 py-1.5 rounded-lg bg-[#4F46E5] text-white text-sm font-medium transition-colors">1</button>
+                <button class="px-3 py-1.5 rounded-lg bg-[#4F7CFF] text-white text-sm font-medium transition-colors">1</button>
                 <button class="px-3 py-1.5 rounded-lg border border-[var(--color-border)] text-sm font-medium text-[var(--color-text-secondary)] hover:bg-[var(--color-hover)] transition-colors">Next</button>
             </div>
         </div>

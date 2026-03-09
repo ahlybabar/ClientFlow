@@ -9,7 +9,7 @@
             <h1 class="text-2xl font-bold text-[var(--color-text)]">Team Management</h1>
             <p class="mt-1 text-sm text-[var(--color-text-secondary)]">Manage roles, workloads, and invite members</p>
         </div>
- <button onclick="window.toast?.('Invite sent!', 'success')" class="inline-flex items-center gap-2 px-4 py-2 bg-[#6366F1] text-white rounded-lg hover:opacity-90 font-medium text-sm transition-opacity">
+ <button onclick="window.toast?.('Invite sent!', 'success')" class="inline-flex items-center gap-2 px-4 py-2 bg-[#4F7CFF] text-white rounded-lg hover:opacity-90 font-medium text-sm transition-opacity">
  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
  Invite Member
  </button>
@@ -29,7 +29,7 @@
         </div>
         <div class="bg-[var(--color-card)] rounded-xl p-5 border border-[var(--color-border)] shadow-sm transition-colors">
             <p class="text-sm text-[var(--color-text-secondary)]">Avg. Productivity</p>
-            <p class="text-2xl font-bold text-[#6366F1] mt-1">86.6%</p>
+            <p class="text-2xl font-bold text-[#4F7CFF] mt-1">86.6%</p>
             <p class="text-xs text-[#22C55E] mt-1">↑ +3.2% this week</p>
         </div>
  </div>
@@ -59,16 +59,16 @@
                     @php
                     $roleClasses = [
                         'Admin' => 'bg-[#FEF2F2] text-[#EF4444] dark:bg-[rgba(239,68,68,0.1)]',
-                        'Manager' => 'bg-[#EEF2FF] text-[#6366F1] dark:bg-[var(--color-active-bg)]',
+                        'Manager' => 'bg-[#EEF2FF] text-[#4F7CFF] dark:bg-[var(--color-active-bg)]',
                         'Staff' => 'bg-[var(--color-hover)] text-[var(--color-text-secondary)]',
                     ];
- $scoreColor = $m['score'] >= 90 ? 'bg-[#22C55E]' : ($m['score'] >= 80 ? 'bg-[#6366F1]' : 'bg-[#F59E0B]');
+ $scoreColor = $m['score'] >= 90 ? 'bg-[#22C55E]' : ($m['score'] >= 80 ? 'bg-[#4F7CFF]' : 'bg-[#F59E0B]');
  @endphp
  <tr class="hover:bg-[var(--color-hover)] transition-colors">
                         <td class="px-6 py-4">
                             <div class="flex items-center gap-3">
                                 <div class="relative shrink-0">
-                                    <div class="w-10 h-10 rounded-full bg-[#6366F1] text-white flex items-center justify-center font-medium text-sm">{{ substr($m['name'], 0, 2) }}</div>
+                                    <div class="w-10 h-10 rounded-full bg-[#4F7CFF] text-white flex items-center justify-center font-medium text-sm">{{ substr($m['name'], 0, 2) }}</div>
                                     <span class="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full border-2 border-[var(--color-card)] {{ $m['online'] ? 'bg-[#22C55E]' : 'bg-[var(--color-border)]' }} transition-colors"></span>
                                 </div>
                                 <div>
@@ -98,7 +98,7 @@
                         </td>
  <td class="px-6 py-4 text-right">
  <div class="flex items-center justify-end gap-1">
- <button class="p-2 rounded-lg hover:bg-[var(--color-bg)] text-[var(--color-text-secondary)] hover:text-[#6366F1] transition-colors" title="Edit role">
+ <button class="p-2 rounded-lg hover:bg-[var(--color-bg)] text-[var(--color-text-secondary)] hover:text-[#4F7CFF] transition-colors" title="Edit role">
  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
  </button>
  @if($m['online'])

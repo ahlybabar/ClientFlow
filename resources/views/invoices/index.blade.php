@@ -9,7 +9,7 @@
             <h1 class="text-2xl font-bold text-[var(--color-text)]">Invoices</h1>
             <p class="mt-1 text-sm text-[var(--color-text-secondary)]">Manage and track your client invoices</p>
         </div>
- <button class="inline-flex items-center gap-2 px-4 py-2 bg-[#6366F1] text-white rounded-lg hover:bg-[#4F46E5] font-medium text-sm transition-colors">
+ <button class="inline-flex items-center gap-2 px-4 py-2 bg-[#4F7CFF] text-white rounded-lg hover:bg-[#4F7CFF] font-medium text-sm transition-colors">
  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
  Create Invoice
  </button>
@@ -25,7 +25,7 @@
                     <p class="text-xs text-[var(--color-text-secondary)] mt-1">42 invoices total</p>
                 </div>
  <div class="p-3 bg-[#EEF2FF] dark:bg-[var(--color-active-bg)] rounded-lg transition-colors">
- <svg class="w-6 h-6 text-[#6366F1]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+ <svg class="w-6 h-6 text-[#4F7CFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
  </div>
  </div>
  </div>
@@ -64,7 +64,7 @@
  ['v' => 'overdue', 'l' => 'Overdue'],
  ] as $tab)
         <button @click="statusFilter = '{{ $tab['v'] }}'"
-                :class="statusFilter === '{{ $tab['v'] }}' ? 'bg-[#6366F1] text-white' : 'border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:bg-[var(--color-hover)]'"
+                :class="statusFilter === '{{ $tab['v'] }}' ? 'bg-[#4F7CFF] text-white' : 'border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:bg-[var(--color-hover)]'"
                 class="px-4 py-2 rounded-lg text-sm font-medium transition-colors">{{ $tab['l'] }}</button>
  @endforeach
  </div>
@@ -101,7 +101,7 @@
                 @endphp
  <tr x-show="statusFilter === 'all' || statusFilter === '{{ $inv['status'] }}'" class="hover:bg-[var(--color-hover)] transition-colors">
                         <td class="px-6 py-4">
-                            <a href="{{ route('invoices.show', 1) }}" class="font-semibold text-[#6366F1] hover:underline">{{ $inv['id'] }}</a>
+                            <a href="{{ route('invoices.show', 1) }}" class="font-semibold text-[#4F7CFF] hover:underline">{{ $inv['id'] }}</a>
                         </td>
                         <td class="px-6 py-4 text-sm font-medium text-[var(--color-text)]">{{ $inv['client'] }}</td>
                         <td class="px-6 py-4 text-sm text-[var(--color-text-secondary)]">{{ $inv['project'] }}</td>
@@ -113,10 +113,10 @@
  </td>
  <td class="px-6 py-4 text-right">
  <div class="flex items-center justify-end gap-1">
- <a href="{{ route('invoices.show', 1) }}" class="p-2 rounded-lg hover:bg-[var(--color-bg)] text-[var(--color-text-secondary)] hover:text-[#6366F1] transition-colors" title="View">
+ <a href="{{ route('invoices.show', 1) }}" class="p-2 rounded-lg hover:bg-[var(--color-bg)] text-[var(--color-text-secondary)] hover:text-[#4F7CFF] transition-colors" title="View">
  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
  </a>
- <button onclick="window.toast?.('Invoice downloaded')" class="p-2 rounded-lg hover:bg-[var(--color-bg)] text-[var(--color-text-secondary)] hover:text-[#6366F1] transition-colors" title="Download">
+ <button onclick="window.toast?.('Invoice downloaded')" class="p-2 rounded-lg hover:bg-[var(--color-bg)] text-[var(--color-text-secondary)] hover:text-[#4F7CFF] transition-colors" title="Download">
  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
  </button>
  </div>
@@ -130,7 +130,7 @@
             <p class="text-sm text-[var(--color-text-secondary)]">Showing 1–5 of 42 invoices</p>
             <div class="flex gap-2">
                 <button class="px-3 py-1.5 rounded-lg border border-[var(--color-border)] text-sm font-medium text-[var(--color-text-secondary)] hover:bg-[var(--color-hover)] disabled:opacity-40 transition-colors" disabled>Previous</button>
-                <button class="px-3 py-1.5 rounded-lg bg-[#6366F1] text-white text-sm font-medium transition-colors">1</button>
+                <button class="px-3 py-1.5 rounded-lg bg-[#4F7CFF] text-white text-sm font-medium transition-colors">1</button>
                 <button class="px-3 py-1.5 rounded-lg border border-[var(--color-border)] text-sm font-medium text-[var(--color-text-secondary)] hover:bg-[var(--color-hover)] transition-colors">Next</button>
             </div>
         </div>

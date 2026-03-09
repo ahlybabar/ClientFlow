@@ -93,7 +93,7 @@
                         <td class="px-6 py-4 font-medium text-[#22C55E]">{{ $pay['amount'] }}</td>
                         <td class="px-6 py-4">
                             <span class="inline-flex items-center gap-1.5 text-[14px] text-[#64748B]">
-                                @if($pay['method'] === 'Bank Transfer')<span class="w-2 h-2 rounded-full bg-[#4F46E5]"></span>
+                                @if($pay['method'] === 'Bank Transfer')<span class="w-2 h-2 rounded-full bg-[#4F7CFF]"></span>
                                 @elseif($pay['method'] === 'Stripe')<span class="w-2 h-2 rounded-full bg-[#22C55E]"></span>
                                 @elseif($pay['method'] === 'PayPal')<span class="w-2 h-2 rounded-full bg-[#F59E0B]"></span>
                                 @else<span class="w-2 h-2 rounded-full bg-[#64748B]"></span>@endif

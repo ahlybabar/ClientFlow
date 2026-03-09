@@ -83,7 +83,7 @@
                 ] as $activity)
                     <div class="flex gap-4 py-3 border-b border-[var(--color-border)] last:border-0 hover:bg-[var(--color-hover)] transition-colors rounded-lg px-2 -mx-2">
                         <div class="w-10 h-10 rounded-full flex items-center justify-center shrink-0 shadow-sm
-                            {{ $activity['type'] === 'client' ? 'bg-[#EEF2FF] text-[#4F46E5] dark:bg-[var(--color-active-bg)]' : 
+                            {{ $activity['type'] === 'client' ? 'bg-[#EEF2FF] text-[#4F7CFF] dark:bg-[var(--color-active-bg)]' : 
                               ($activity['type'] === 'project' ? 'bg-[#ECFDF5] text-[#22C55E] dark:bg-[rgba(34,197,94,0.1)]' : 
                                'bg-[#FEF3C7] text-[#F59E0B] dark:bg-[rgba(245,158,11,0.1)]') }}">
                             @if($activity['type'] === 'client')
@@ -117,7 +117,7 @@
                                 <p class="text-[14px] font-medium text-[var(--color-text)]">{{ $item['task'] }}</p>
                                 <p class="text-[12px] text-[var(--color-text-secondary)]">{{ $item['project'] }}</p>
                             </div>
-                            <span class="text-[11px] font-medium text-[#4F46E5] bg-[#EEF2FF] dark:bg-[var(--color-active-bg)] px-2.5 py-1 rounded-full">{{ $item['date'] }}</span>
+                            <span class="text-[11px] font-medium text-[#4F7CFF] bg-[#EEF2FF] dark:bg-[var(--color-active-bg)] px-2.5 py-1 rounded-full">{{ $item['date'] }}</span>
                         </div>
                     @endforeach
                 </div>
@@ -138,7 +138,7 @@
             <div class="bg-[var(--color-card)] rounded-xl p-6 border border-[var(--color-border)] shadow-sm hover:shadow-md transition-shadow">
                 <div class="flex items-center justify-between mb-4">
                     <h3 class="text-[20px] font-semibold text-[var(--color-text)]">Project Health</h3>
-                    <a href="{{ route('projects.index') }}" class="text-sm text-[#4F46E5] hover:underline font-medium">View all</a>
+                    <a href="{{ route('projects.index') }}" class="text-sm text-[#4F7CFF] hover:underline font-medium">View all</a>
                 </div>
                 <div class="space-y-3">
                     <div class="flex items-center justify-between p-3 rounded-lg bg-[#ECFDF5] dark:bg-[rgba(34,197,94,0.1)] border border-[#22C55E]/20">

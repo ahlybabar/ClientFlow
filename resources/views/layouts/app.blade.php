@@ -78,7 +78,7 @@
             <!-- Sidebar header -->
             <div class="flex h-16 items-center justify-between px-4 border-b border-[var(--color-border)] shrink-0">
                 <a href="{{ route('dashboard') }}" class="flex items-center gap-2">
-                    <div class="w-9 h-9 rounded-lg bg-[#4F46E5] flex items-center justify-center shrink-0">
+                    <div class="w-9 h-9 rounded-lg bg-[#4F7CFF] flex items-center justify-center shrink-0">
                         <span class="text-white font-bold text-lg">C</span>
                     </div>
                     <span class="font-semibold text-[var(--color-text)] whitespace-nowrap">ClientFlow Pro</span>
@@ -88,7 +88,7 @@
                         class="ml-2 p-1.5 rounded-lg hover:bg-[#F1F5F9] transition-colors shrink-0"
                         :title="sidebarPinned ? 'Auto-hide sidebar' : 'Pin sidebar'">
                     <template x-if="sidebarPinned">
-                        <svg class="w-4 h-4 text-[#4F46E5]" fill="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-4 h-4 text-[#4F7CFF]" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M16 12V4h1V2H7v2h1v8l-2 2v2h5.2v6h1.6v-6H18v-2l-2-2z"/>
                         </svg>
                     </template>
@@ -113,12 +113,12 @@
                         @endphp
                         <div x-data="{ expanded: {{ $isExpanded ? 'true' : 'false' }} }" class="space-y-1">
                             <button @click="expanded = !expanded"
-                               class="w-full group relative flex items-center justify-between gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-all {{ request()->routeIs($item['route'].'*') && !collect($item['subItems'])->contains(function($sub){return request()->routeIs($sub['route'].'*');}) ? 'bg-[var(--color-active-bg)] text-[#4F46E5]' : 'text-[var(--color-text-secondary)] hover:bg-[var(--color-hover)] hover:text-[var(--color-text)]' }}">
+                               class="w-full group relative flex items-center justify-between gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-all {{ $isExpanded ? 'bg-[var(--color-active-bg)] text-[#4F7CFF]' : 'text-[var(--color-text-secondary)] hover:bg-[var(--color-hover)] hover:text-[var(--color-text)]' }}">
                                 <div class="flex items-center gap-3">
-                                    @if(request()->routeIs($item['route'].'*') && !collect($item['subItems'])->contains(function($sub){return request()->routeIs($sub['route'].'*');}))
-                                        <div class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-5 bg-[#4F46E5] rounded-r-full"></div>
+                                    @if($isExpanded)
+                                        <div class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-5 bg-[#4F7CFF] rounded-r-full"></div>
                                     @endif
-                                    <svg class="w-5 h-5 shrink-0 transition-colors {{ request()->routeIs($item['route'].'*') && !collect($item['subItems'])->contains(function($sub){return request()->routeIs($sub['route'].'*');}) ? 'text-[#4F46E5]' : 'text-[var(--color-text-muted)] group-hover:text-[var(--color-text-secondary)]' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg class="w-5 h-5 shrink-0 transition-colors {{ $isExpanded ? 'text-[#4F7CFF]' : 'text-[var(--color-text-muted)] group-hover:text-[var(--color-text-secondary)]' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $item['icon'] }}"/>
                                     </svg>
                                     <span class="whitespace-nowrap">{{ $item['label'] }}</span>
@@ -127,12 +127,12 @@
                             </button>
                             <div x-show="expanded" x-transition class="pl-11 pr-3 space-y-1 pt-1" @if(!$isExpanded) x-cloak @endif>
                                 <a href="{{ route($item['route']) }}" @click="if(!sidebarPinned && sidebarVisible) { sessionStorage.setItem('sidebarKeepOpen', 'true'); }"
-                                   class="block px-3 py-2 rounded-lg text-sm font-medium transition-colors {{ request()->routeIs($item['route']) ? 'bg-[var(--color-active-bg)] text-[#4F46E5]' : 'text-[var(--color-text-secondary)] hover:bg-[var(--color-hover)] hover:text-[var(--color-text)]' }}">
+                                   class="block px-3 py-2 rounded-lg text-sm font-medium transition-colors {{ request()->routeIs($item['route']) ? 'bg-[var(--color-active-bg)] text-[#4F7CFF]' : 'text-[var(--color-text-secondary)] hover:bg-[var(--color-hover)] hover:text-[var(--color-text)]' }}">
                                     Overview
                                 </a>
                                 @foreach($item['subItems'] as $subItem)
                                 <a href="{{ route($subItem['route']) }}" @click="if(!sidebarPinned && sidebarVisible) { sessionStorage.setItem('sidebarKeepOpen', 'true'); }"
-                                   class="block px-3 py-2 rounded-lg text-sm font-medium transition-colors {{ request()->routeIs($subItem['route'].'*') ? 'bg-[var(--color-active-bg)] text-[#4F46E5]' : 'text-[var(--color-text-secondary)] hover:bg-[var(--color-hover)] hover:text-[var(--color-text)]' }}">
+                                   class="block px-3 py-2 rounded-lg text-sm font-medium transition-colors {{ request()->routeIs($subItem['route'].'*') ? 'bg-[var(--color-active-bg)] text-[#4F7CFF]' : 'text-[var(--color-text-secondary)] hover:bg-[var(--color-hover)] hover:text-[var(--color-text)]' }}">
                                     {{ $subItem['label'] }}
                                 </a>
                                 @endforeach
@@ -141,11 +141,11 @@
                         @else
                         <a href="{{ route($item['route']) }}"
                            @click="if(!sidebarPinned && sidebarVisible) { sessionStorage.setItem('sidebarKeepOpen', 'true'); }"
-                           class="group relative flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-all {{ request()->routeIs($item['route'].'*') ? 'bg-[var(--color-active-bg)] text-[#4F46E5]' : 'text-[var(--color-text-secondary)] hover:bg-[var(--color-hover)] hover:text-[var(--color-text)]' }}">
+                           class="group relative flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-all {{ request()->routeIs($item['route'].'*') ? 'bg-[var(--color-active-bg)] text-[#4F7CFF]' : 'text-[var(--color-text-secondary)] hover:bg-[var(--color-hover)] hover:text-[var(--color-text)]' }}">
                             @if(request()->routeIs($item['route'].'*'))
-                                <div class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-5 bg-[#4F46E5] rounded-r-full"></div>
+                                <div class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-5 bg-[#4F7CFF] rounded-r-full"></div>
                             @endif
-                            <svg class="w-5 h-5 shrink-0 transition-colors {{ request()->routeIs($item['route'].'*') ? 'text-[#4F46E5]' : 'text-[var(--color-text-muted)] group-hover:text-[var(--color-text-secondary)]' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-5 h-5 shrink-0 transition-colors {{ request()->routeIs($item['route'].'*') ? 'text-[#4F7CFF]' : 'text-[var(--color-text-muted)] group-hover:text-[var(--color-text-secondary)]' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $item['icon'] }}"/>
                             </svg>
                             <span class="whitespace-nowrap">{{ $item['label'] }}</span>
@@ -179,12 +179,12 @@
                         @endphp
                         <div x-data="{ expanded: {{ $isExpandedMobile ? 'true' : 'false' }} }" class="space-y-1">
                             <button @click="expanded = !expanded"
-                               class="w-full relative flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-all {{ request()->routeIs($item['route'].'*') && !collect($item['subItems'])->contains(function($sub){return request()->routeIs($sub['route'].'*');}) ? 'bg-[var(--color-active-bg)] text-[#4F46E5]' : 'text-[var(--color-text-secondary)] hover:bg-[var(--color-hover)] hover:text-[var(--color-text)]' }}">
+                               class="w-full relative flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-all {{ $isExpandedMobile ? 'bg-[var(--color-active-bg)] text-[#4F7CFF]' : 'text-[var(--color-text-secondary)] hover:bg-[var(--color-hover)] hover:text-[var(--color-text)]' }}">
                                 <div class="flex items-center gap-3">
-                                    @if(request()->routeIs($item['route'].'*') && !collect($item['subItems'])->contains(function($sub){return request()->routeIs($sub['route'].'*');}))
-                                        <div class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-5 bg-[#4F46E5] rounded-r-full"></div>
+                                    @if($isExpandedMobile)
+                                        <div class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-5 bg-[#4F7CFF] rounded-r-full"></div>
                                     @endif
-                                    <svg class="w-5 h-5 shrink-0 transition-colors {{ request()->routeIs($item['route'].'*') && !collect($item['subItems'])->contains(function($sub){return request()->routeIs($sub['route'].'*');}) ? 'text-[#4F46E5]' : 'text-[var(--color-text-muted)]' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg class="w-5 h-5 shrink-0 transition-colors {{ $isExpandedMobile ? 'text-[#4F7CFF]' : 'text-[var(--color-text-muted)]' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $item['icon'] }}"/>
                                     </svg>
                                     <span class="whitespace-nowrap">{{ $item['label'] }}</span>
@@ -193,12 +193,12 @@
                             </button>
                             <div x-show="expanded" x-transition class="pl-11 pr-3 space-y-1 pt-1" @if(!$isExpandedMobile) x-cloak @endif>
                                 <a href="{{ route($item['route']) }}" @click="mobileSidebarOpen = false"
-                                   class="block px-3 py-2 rounded-lg text-sm font-medium transition-colors {{ request()->routeIs($item['route']) ? 'bg-[var(--color-active-bg)] text-[#4F46E5]' : 'text-[var(--color-text-secondary)] hover:bg-[var(--color-hover)] hover:text-[var(--color-text)]' }}">
+                                   class="block px-3 py-2 rounded-lg text-sm font-medium transition-colors {{ request()->routeIs($item['route']) ? 'bg-[var(--color-active-bg)] text-[#4F7CFF]' : 'text-[var(--color-text-secondary)] hover:bg-[var(--color-hover)] hover:text-[var(--color-text)]' }}">
                                     Overview
                                 </a>
                                 @foreach($item['subItems'] as $subItem)
                                 <a href="{{ route($subItem['route']) }}" @click="mobileSidebarOpen = false"
-                                   class="block px-3 py-2 rounded-lg text-sm font-medium transition-colors {{ request()->routeIs($subItem['route'].'*') ? 'bg-[var(--color-active-bg)] text-[#4F46E5]' : 'text-[var(--color-text-secondary)] hover:bg-[var(--color-hover)] hover:text-[var(--color-text)]' }}">
+                                   class="block px-3 py-2 rounded-lg text-sm font-medium transition-colors {{ request()->routeIs($subItem['route'].'*') ? 'bg-[var(--color-active-bg)] text-[#4F7CFF]' : 'text-[var(--color-text-secondary)] hover:bg-[var(--color-hover)] hover:text-[var(--color-text)]' }}">
                                     {{ $subItem['label'] }}
                                 </a>
                                 @endforeach
@@ -206,11 +206,11 @@
                         </div>
                         @else
                         <a href="{{ route($item['route']) }}" @click="mobileSidebarOpen = false"
-                           class="relative flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-all {{ request()->routeIs($item['route'].'*') ? 'bg-[var(--color-active-bg)] text-[#4F46E5]' : 'text-[var(--color-text-secondary)] hover:bg-[var(--color-hover)] hover:text-[var(--color-text)]' }}">
+                           class="relative flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-all {{ request()->routeIs($item['route'].'*') ? 'bg-[var(--color-active-bg)] text-[#4F7CFF]' : 'text-[var(--color-text-secondary)] hover:bg-[var(--color-hover)] hover:text-[var(--color-text)]' }}">
                             @if(request()->routeIs($item['route'].'*'))
-                                <div class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-5 bg-[#4F46E5] rounded-r-full"></div>
+                                <div class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-5 bg-[#4F7CFF] rounded-r-full"></div>
                             @endif
-                            <svg class="w-5 h-5 shrink-0 transition-colors {{ request()->routeIs($item['route'].'*') ? 'text-[#4F46E5]' : 'text-[var(--color-text-muted)]' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $item['icon'] }}"/></svg>
+                            <svg class="w-5 h-5 shrink-0 transition-colors {{ request()->routeIs($item['route'].'*') ? 'text-[#4F7CFF]' : 'text-[var(--color-text-muted)]' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $item['icon'] }}"/></svg>
                             {{ $item['label'] }}
                         </a>
                         @endif
@@ -258,10 +258,10 @@
                              class="absolute right-0 mt-2 w-80 max-h-96 overflow-y-auto bg-[var(--color-card)] rounded-xl shadow-lg border border-[var(--color-border)] py-2">
                             <div class="px-4 py-2 flex items-center justify-between border-b border-[var(--color-border)]">
                                 <span class="font-semibold text-[var(--color-text)]">Notifications</span>
-                                <a href="{{ route('notifications.index') }}" class="text-sm text-[#4F46E5] hover:underline">View all</a>
+                                <a href="{{ route('notifications.index') }}" class="text-sm text-[#4F7CFF] hover:underline">View all</a>
                             </div>
                             <a href="{{ route('tasks.index') }}" class="flex gap-3 px-4 py-3 hover:bg-[var(--color-hover)]">
-                                <div class="w-10 h-10 rounded-full bg-[var(--color-active-bg)] flex items-center justify-center shrink-0 text-[#4F46E5] text-sm font-medium">T</div>
+                                <div class="w-10 h-10 rounded-full bg-[var(--color-active-bg)] flex items-center justify-center shrink-0 text-[#4F7CFF] text-sm font-medium">T</div>
                                 <div>
                                     <p class="text-sm font-medium text-[var(--color-text)]">Task assigned: Design homepage mockup</p>
                                     <p class="text-xs text-[var(--color-text-secondary)]">2 hours ago</p>
@@ -284,7 +284,7 @@
                         </div>
                     </div>
 
-                    <button @click="quickCreateOpen = true" class="inline-flex items-center gap-2 px-3 sm:px-4 py-2 bg-[#4F46E5] text-white rounded-lg hover:opacity-90 font-medium text-sm transition-opacity">
+                    <button @click="quickCreateOpen = true" class="inline-flex items-center gap-2 px-3 sm:px-4 py-2 bg-[#4F7CFF] text-white rounded-lg hover:opacity-90 font-medium text-sm transition-opacity">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
                         </svg>
@@ -292,7 +292,7 @@
                     </button>
                     <div class="relative" x-data="{ open: false }">
                         <button @click="open = !open" class="flex items-center gap-2.5 p-1 pr-2 rounded-lg hover:bg-[var(--color-hover)] transition-colors text-left">
-                            <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#4F46E5] to-[#818CF8] flex items-center justify-center text-white text-xs font-bold shadow-sm">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#4F7CFF] to-[#818CF8] flex items-center justify-center text-white text-xs font-bold shadow-sm">
                                 JD
                             </div>
                             <div class="hidden sm:block">

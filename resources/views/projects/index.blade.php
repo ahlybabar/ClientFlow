@@ -9,7 +9,7 @@
             <h1 class="text-2xl font-bold text-[var(--color-text)]">Projects</h1>
             <p class="mt-1 text-sm text-[var(--color-text-secondary)]">Track and manage all your client projects</p>
         </div>
-        <button class="inline-flex items-center gap-2 px-4 py-2 bg-[#4F46E5] text-white rounded-lg hover:bg-[#4338CA] font-medium text-sm transition-colors">
+        <button class="inline-flex items-center gap-2 px-4 py-2 bg-[#4F7CFF] text-white rounded-lg hover:bg-[#4338CA] font-medium text-sm transition-colors">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
             New Project
         </button>
@@ -56,7 +56,7 @@
             ['v' => 'Completed',   'l' => 'Completed',    'c' => 1],
         ] as $tab)
         <button @click="statusFilter = '{{ $tab['v'] }}'"
-                :class="statusFilter === '{{ $tab['v'] }}' ? 'bg-[#4F46E5] text-white border-transparent' : 'border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:bg-[var(--color-hover)]'"
+                :class="statusFilter === '{{ $tab['v'] }}' ? 'bg-[#4F7CFF] text-white border-transparent' : 'border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:bg-[var(--color-hover)]'"
                 class="px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2">
             {{ $tab['l'] }}
             <span :class="statusFilter === '{{ $tab['v'] }}' ? 'bg-white/20' : 'bg-[var(--color-bg-secondary)]'" class="text-xs px-1.5 py-0.5 rounded-full">{{ $tab['c'] }}</span>
@@ -77,7 +77,7 @@
         @php
         $statusClasses = [
             'Completed'   => 'bg-[#ECFDF5] text-[#22C55E] dark:bg-[rgba(34,197,94,0.1)]',
-            'In Progress' => 'bg-[#EEF2FF] text-[#4F46E5] dark:bg-[var(--color-active-bg)]',
+            'In Progress' => 'bg-[#EEF2FF] text-[#4F7CFF] dark:bg-[var(--color-active-bg)]',
             'Review'      => 'bg-[#FEF3C7] text-[#D97706] dark:bg-[rgba(217,119,6,0.1)]',
             'Planning'    => 'bg-[var(--color-hover)] text-[var(--color-text-secondary)]',
         ];
@@ -87,13 +87,13 @@
             'critical' => ['bg' => 'bg-[#EF4444]', 'text' => 'text-[#EF4444]', 'label' => 'Critical', 'ring' => 'ring-[#EF4444]/20', 'bgLight' => 'bg-[#FEF2F2] dark:bg-[rgba(239,68,68,0.1)]'],
         ];
         $hc = $healthClasses[$project['health']];
-        $barColor = $project['progress'] === 100 ? 'bg-[#22C55E]' : ($project['health'] === 'critical' ? 'bg-[#EF4444]' : ($project['health'] === 'at-risk' ? 'bg-[#F59E0B]' : 'bg-[#4F46E5]'));
+        $barColor = $project['progress'] === 100 ? 'bg-[#22C55E]' : ($project['health'] === 'critical' ? 'bg-[#EF4444]' : ($project['health'] === 'at-risk' ? 'bg-[#F59E0B]' : 'bg-[#4F7CFF]'));
         @endphp
         <a href="{{ route('projects.show', 1) }}"
            x-show="statusFilter === 'all' || statusFilter === '{{ $project['status'] }}'"
            class="block bg-[var(--color-card)] rounded-xl p-6 border border-[var(--color-border)] shadow-sm hover:shadow-lg transition-all group">
             <div class="flex items-start justify-between mb-3">
-                <h3 class="font-semibold text-[var(--color-text)] group-hover:text-[#4F46E5] transition-colors">{{ $project['name'] }}</h3>
+                <h3 class="font-semibold text-[var(--color-text)] group-hover:text-[#4F7CFF] transition-colors">{{ $project['name'] }}</h3>
                 <div class="flex items-center gap-2">
                     {{-- Health Badge --}}
                     <span class="inline-flex items-center gap-1.5 text-[11px] font-semibold px-2 py-0.5 rounded-full {{ $hc['bgLight'] }} {{ $hc['text'] }}" title="{{ $hc['label'] }}">
@@ -121,7 +121,7 @@
             <div class="flex items-center justify-between mb-4">
                 <div class="flex -space-x-2">
                     @foreach($project['team'] as $member)
-                    <div class="w-8 h-8 rounded-full bg-[#4F46E5] border-2 border-[var(--color-card)] flex items-center justify-center text-white text-xs font-medium">{{ $member }}</div>
+                    <div class="w-8 h-8 rounded-full bg-[#4F7CFF] border-2 border-[var(--color-card)] flex items-center justify-center text-white text-xs font-medium">{{ $member }}</div>
                     @endforeach
                 </div>
                 <span class="text-xs text-[var(--color-text-secondary)]">{{ $project['tasks']['done'] }}/{{ $project['tasks']['total'] }} tasks</span>
