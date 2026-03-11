@@ -63,7 +63,7 @@
  </label>
  <a href="#" class="text-sm font-medium text-[#6366F1] hover:underline">Forgot password?</a>
  </div>
- <button type="submit" class="w-full py-3 px-4 bg-[#6366F1] text-white rounded-lg font-medium hover:bg-[#4F46E5] transition-colors">
+ <button type="submit" class="w-full py-3 px-4 bg-[#6366F1] text-white rounded-lg font-medium hover:bg-[#4F7CFF] transition-colors">
  Sign in
  </button>
  </form>

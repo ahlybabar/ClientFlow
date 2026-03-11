@@ -15,12 +15,12 @@
     <div class="bg-white shadow-sm overflow-hidden sm:rounded-lg border border-[#E2E8F0]">
         <div class="px-4 py-5 border-b border-[#E2E8F0] sm:px-6 flex items-center justify-between">
             <h3 class="text-lg leading-6 font-medium text-[#0F172A]">Active Projects</h3>
-            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#EEF2FF] text-[#4F46E5]">{{ count([1,2]) }} Active</span>
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#EEF2FF] text-[#4F7CFF]">{{ count([1,2]) }} Active</span>
         </div>
         <ul class="divide-y divide-[#E2E8F0]">
             @foreach([
                 ['name' => 'Website Redesign', 'phase' => 'Phase 2: Development', 'status' => 'On Track', 'statusColor' => 'bg-[#ECFDF5] text-[#22C55E]', 'progress' => 75, 'deadline' => 'Mar 15, 2025', 'lastUpdate' => '2 days ago', 'team' => ['JS', 'AK']],
-                ['name' => 'Brand Identity Guide', 'phase' => 'Final Review', 'status' => 'In Review', 'statusColor' => 'bg-[#EEF2FF] text-[#4F46E5]', 'progress' => 95, 'deadline' => 'Feb 28, 2025', 'lastUpdate' => '1 week ago', 'team' => ['MB']],
+                ['name' => 'Brand Identity Guide', 'phase' => 'Final Review', 'status' => 'In Review', 'statusColor' => 'bg-[#EEF2FF] text-[#4F7CFF]', 'progress' => 95, 'deadline' => 'Feb 28, 2025', 'lastUpdate' => '1 week ago', 'team' => ['MB']],
             ] as $project)
             <li>
                 <a href="#" class="block hover:bg-[#F8FAFC] transition duration-150 ease-in-out">
@@ -33,7 +33,7 @@
                         </div>
                         <div class="mt-2 sm:flex sm:justify-between">
                             <div class="sm:flex">
-                                <p class="flex items-center text-sm text-[#4F46E5] font-medium">
+                                <p class="flex items-center text-sm text-[#4F7CFF] font-medium">
                                     {{ $project['phase'] }}
                                 </p>
                             </div>
@@ -49,7 +49,7 @@
                                 </div>
                                 <div class="relative pt-1">
                                     <div class="overflow-hidden h-2 text-xs flex rounded-full bg-[#E2E8F0]">
-                                        <div style="width: {{ $project['progress'] }}%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center {{ $project['progress'] === 100 ? 'bg-[#22C55E]' : 'bg-[#4F46E5]' }}"></div>
+                                        <div style="width: {{ $project['progress'] }}%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center {{ $project['progress'] === 100 ? 'bg-[#22C55E]' : 'bg-[#4F7CFF]' }}"></div>
                                     </div>
                                 </div>
                             </div>
@@ -88,7 +88,7 @@
                         <p class="text-sm font-medium text-[#0F172A]">{{ $project['name'] }}</p>
                         <p class="text-xs text-[#64748B] mt-1">Completed on {{ $project['completedDate'] }} • Managed by {{ $project['manager'] }}</p>
                     </div>
-                    <button class="text-sm font-medium text-[#4F46E5] hover:text-[#4338CA]">View files</button>
+                    <button class="text-sm font-medium text-[#4F7CFF] hover:text-[#4338CA]">View files</button>
                 </div>
             </li>
             @endforeach

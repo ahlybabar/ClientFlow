@@ -9,7 +9,7 @@
 
 @php
     $colorStyles = [
-        'primary' => ['bg' => 'bg-[#EEF2FF] dark:bg-[var(--color-active-bg)]', 'text' => 'text-[#4F46E5]'],
+        'primary' => ['bg' => 'bg-[#EEF2FF] dark:bg-[var(--color-active-bg)]', 'text' => 'text-[#4F7CFF]'],
         'success' => ['bg' => 'bg-[#ECFDF5] dark:bg-[rgba(34,197,94,0.1)]', 'text' => 'text-[#22C55E]'],
         'warning' => ['bg' => 'bg-[#FEF3C7] dark:bg-[rgba(245,158,11,0.1)]', 'text' => 'text-[#F59E0B]'],
         'danger'  => ['bg' => 'bg-[#FEF2F2] dark:bg-[rgba(239,68,68,0.1)]', 'text' => 'text-[#EF4444]'],

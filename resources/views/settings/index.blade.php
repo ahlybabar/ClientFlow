@@ -19,7 +19,7 @@
  </div>
  <h1 class="text-2xl font-bold text-[#111827] mb-2">Settings</h1>
  <p class="text-[#6B7280] mb-8 text-center max-w-md">Settings have been moved to the new unified configuration modal. You can access it from anywhere by clicking the settings icon or the button below.</p>
- <button @click.prevent="settingsModalOpen = true" class="px-6 py-2.5 bg-[#6366F1] text-white rounded-lg font-medium hover:bg-[#4F46E5] transition-colors shadow-sm">
+ <button @click.prevent="settingsModalOpen = true" class="px-6 py-2.5 bg-[#6366F1] text-white rounded-lg font-medium hover:bg-[#4F7CFF] transition-colors shadow-sm">
  Open Settings Modal
  </button>
 </div>

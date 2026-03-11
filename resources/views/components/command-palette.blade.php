@@ -29,7 +29,7 @@
         <div x-show="activeFilters.length > 0" class="flex items-center gap-2 px-5 py-2.5 border-b border-[#F1F5F9] bg-[#F8FAFC]">
             <span class="text-xs text-[#94A3B8] font-medium">Filters:</span>
             <template x-for="(filter, fi) in activeFilters" :key="fi">
-                <span class="inline-flex items-center gap-1 px-2.5 py-1 bg-[#EEF2FF] text-[#4F46E5] rounded-lg text-xs font-medium">
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 bg-[#EEF2FF] text-[#4F7CFF] rounded-lg text-xs font-medium">
                     <span x-text="filter"></span>
                     <button @click="removeFilter(fi)" class="hover:text-[#EF4444] transition-colors">
                         <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -49,7 +49,7 @@
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
                         <template x-for="(sug, si) in aiSuggestions" :key="si">
                             <button @click="applySuggestion(sug)"
-                                    class="flex items-center gap-2.5 p-3 rounded-xl border border-[#E2E8F0] hover:border-[#4F46E5] hover:bg-[#EEF2FF] transition-all text-left group">
+                                    class="flex items-center gap-2.5 p-3 rounded-xl border border-[#E2E8F0] hover:border-[#4F7CFF] hover:bg-[#EEF2FF] transition-all text-left group">
                                 <span class="w-8 h-8 rounded-lg flex items-center justify-center text-sm shrink-0"
                                       :class="sug.color">
                                     <span x-text="sug.icon"></span>
@@ -71,7 +71,7 @@
                     <div class="flex flex-wrap gap-1.5 px-2">
                         <template x-for="(fs, fsi) in filterSuggestions" :key="fsi">
                             <button @click="applyFilterSuggestion(fs)"
-                                    class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#E2E8F0] hover:border-[#4F46E5] hover:bg-[#EEF2FF] transition-all text-xs font-medium text-[#64748B] hover:text-[#4F46E5]">
+                                    class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#E2E8F0] hover:border-[#4F7CFF] hover:bg-[#EEF2FF] transition-all text-xs font-medium text-[#64748B] hover:text-[#4F7CFF]">
                                 <span x-text="fs.label"></span>
                             </button>
                         </template>
@@ -122,7 +122,7 @@
                     <template x-for="(item, ii) in group.items" :key="ii">
                         <a :href="item.url || '#'" @click.prevent="searchNavIndex = item._globalIndex; searchNavSelect()"
                            class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[#F8FAFC] text-left transition-all group/item"
-                           :class="searchNavIndex === item._globalIndex ? 'bg-[#EEF2FF] ring-1 ring-[#4F46E5]/20' : ''">
+                           :class="searchNavIndex === item._globalIndex ? 'bg-[#EEF2FF] ring-1 ring-[#4F7CFF]/20' : ''">
                             <span class="w-9 h-9 rounded-lg flex items-center justify-center text-xs font-semibold shrink-0"
                                   :class="item.typeColor">
                                 <span x-text="item.typeIcon"></span>
@@ -137,7 +137,7 @@
                             <div class="flex items-center gap-1.5 ml-2">
                                 <template x-for="(action, ai) in (item.quickActions || [])" :key="ai">
                                     <button @click.prevent.stop="triggerQuickAction(item, action)"
-                                            class="px-2.5 py-1 bg-white border border-[#E2E8F0] hover:border-[#4F46E5] hover:text-[#4F46E5] text-[#64748B] text-[10px] font-medium rounded-md transition-colors shadow-sm opacity-0 group-hover/item:opacity-100"
+                                            class="px-2.5 py-1 bg-white border border-[#E2E8F0] hover:border-[#4F7CFF] hover:text-[#4F7CFF] text-[#64748B] text-[10px] font-medium rounded-md transition-colors shadow-sm opacity-0 group-hover/item:opacity-100"
                                             x-text="action.label"></button>
                                 </template>
                             </div>
