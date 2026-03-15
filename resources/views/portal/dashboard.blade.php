@@ -16,7 +16,6 @@
         </div>
     </div>
 
-    {{-- Stats Row --}}
     <div class="grid grid-cols-1 gap-5 sm:grid-cols-3">
         <div class="bg-white overflow-hidden shadow-sm rounded-lg border border-[#E2E8F0]">
             <div class="p-5">

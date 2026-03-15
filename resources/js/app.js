@@ -127,7 +127,7 @@ document.addEventListener('alpine:init', () => {
                             if (sidebar) {
                                 let keepOpenTimer = setTimeout(() => {
                                     // Check if mouse is over sidebar using :hover
-                                    if (!sidebar.matches(':hover')) {
+                                    if (!sidebar.matches (':hover')) {
                                         this.sidebarVisible = false;
                                     }
                                 }, 600);
